@@ -7,7 +7,12 @@ This linter plugin for [Linter](https://github.com/AtomLinter/Linter) provides a
 
 1. Linter package must be installed in order to use this plugin. If Linter is not installed, please follow the instructions [here](https://github.com/AtomLinter/Linter).
 
-2. FlexPMD tool requires Java, so you need install it first.
+2. [language-actionscript3](https://atom.io/packages/language-actionscript3) package must be installed.
+```
+$ apm install language-actionscript3
+```
+
+3. FlexPMD tool requires Java, so you need install it first.
 
 Now you can proceed to install the linter-flexpmd plugin.
 
