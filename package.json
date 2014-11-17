@@ -3,7 +3,7 @@
   "main": "./lib/init",
   "linter-package": true,
   "activationEvents": [],
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Linting/analyzing ActionScript/Flash/Flex/AIR code on the fly, using flexpmd",
   "repository": "https://github.com/AtomLinter/linter-flexpmd.git",
   "license": "MIT",
