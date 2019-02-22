@@ -1,18 +1,40 @@
 {
   "name": "linter-flexpmd",
   "main": "./lib/init",
-  "linter-package": true,
-  "activationEvents": [],
-  "version": "0.1.9",
   "private": true,
+  "version": "0.1.9",
   "description": "Linting/analyzing ActionScript/Flash/Flex/AIR code on the fly, using flexpmd",
   "repository": "https://github.com/AtomLinter/linter-flexpmd.git",
   "license": "MIT",
   "engines": {
-    "atom": ">0.50.0"
+    "atom": ">=1.9.0 <2.0.0"
+  },
+  "configSchema": {
+    "javaExecutablePath": {
+      "type": "string",
+      "description": "FlexPMD tool requires Java, so you need install it first, then find by running `which java`.",
+      "default": "java"
+    },
+    "javaMemoryAllocation": {
+      "type": "string",
+      "description": "Maximum size, in bytes, of the `java` memory allocation pool. This value must a multiple of 1024 greater than 2MB. Append the letter k or K to indicate kilobytes, or m or M to indicate megabytes... etc",
+      "default": "256m"
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "atom --test spec"
   },
   "dependencies": {
+    "atom-linter": "10.0.0",
+    "atom-package-deps": "5.0.0",
     "flexpmd": "1.3.0-2"
+  },
+  "devDependencies": {
+    "eslint": "5.13.0",
+    "eslint-config-airbnb-base": "13.1.0",
+    "eslint-plugin-import": "2.16.0",
+    "jasmine-fix": "1.3.1"
   },
   "renovate": {
     "extends": [
@@ -28,5 +50,36 @@
         "groupName": "ESLint packages"
       }
     ]
+  },
+  "package-deps": [
+    "linter:2.0.0"
+  ],
+  "providedServices": {
+    "linter": {
+      "versions": {
+        "2.0.0": "provideLinter"
+      }
+    }
+  },
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "rules": {
+      "global-require": "off",
+      "import/no-unresolved": [
+        "error",
+        {
+          "ignore": [
+            "atom"
+          ]
+        }
+      ]
+    },
+    "globals": {
+      "atom": true
+    },
+    "env": {
+      "node": true,
+      "browser": true
+    }
   }
 }

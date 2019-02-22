@@ -1,7 +1,7 @@
 linter-flexpmd
 =========================
 
-This linter plugin for [Linter](https://github.com/AtomLinter/Linter) provides an interface to [flexpmd](https://sourceforge.net/adobe/flexpmd/home/Home/) for linting/analyzing ActionScript/Flash/Flex/AIR code.
+This linter plugin for [Linter](https://github.com/AtomLinter/Linter) provides an interface to [FlexPMD](https://github.com/apache/flex-utilities/tree/develop/FlexPMD) for linting/analyzing ActionScript/Flash/Flex/AIR code.
 
 ## Installation
 
