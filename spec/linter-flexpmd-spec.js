@@ -14,7 +14,21 @@ const goodFile = path.join(__dirname, 'fixtures', 'SomeGoodClass.as');
 describe('The FlexPMD provider for Linter', () => {
   beforeEach(async () => {
     atom.workspace.destroyActivePaneItem();
-    await atom.packages.activatePackage('linter-flexpmd');
+
+    const activationPromise = atom.packages.activatePackage('linter-flexpmd');
+    await atom.packages.activatePackage('language-actionscript3');
+    await atom.workspace.open(goodFile);
+
+    atom.packages.triggerDeferredActivationHooks();
+    await activationPromise;
+  });
+
+  it('should be in the packages list', () => {
+    expect(atom.packages.isPackageLoaded('linter-flexpmd')).toBe(true);
+  });
+
+  it('should be an active package', () => {
+    expect(atom.packages.isPackageActive('linter-flexpmd')).toBe(true);
   });
 
   it('checks a file with syntax warning with flexpmd and reports the correct message', async () => {

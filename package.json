@@ -21,6 +21,9 @@
       "default": "256m"
     }
   },
+  "activationHooks": [
+    "source.actionscript.3:root-scope-used"
+  ],
   "scripts": {
     "lint": "eslint .",
     "test": "atom --test spec"
