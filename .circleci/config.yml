@@ -3,13 +3,19 @@ version: 2
 defaults: &defaults
   working_directory: /tmp/project
   environment:
-    APM_TEST_PACKAGES: "language-actionscript3"    
+    APM_TEST_PACKAGES: "language-actionscript3"
   docker:
     - image: arcanemagus/atom-docker-ci:stable
   steps:
     # Restore project state
     - attach_workspace:
         at: /tmp
+    - run:
+        name: Install Java
+        command: |
+          sudo apt-get update && \
+          sudo apt-get install --assume-yes --quiet --no-install-suggests \
+            --no-install-recommends default-jre-headless        
     - run:
         name: Create VFB for Atom to run in
         command: /usr/local/bin/xvfb_start
